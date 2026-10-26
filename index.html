@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FitPro Spain – Entrenamiento & Nutrición para Deportistas</title>
+<meta name="description" content="Guía completa de ejercicios de gimnasio y nutrición deportiva. Rutinas, dietas y consejos profesionales para maximizar tu rendimiento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0A0A0A;
+  --dark: #141414;
+  --card: #1C1C1C;
+  --border: #2A2A2A;
+  --red: #E8192C;
+  --red-dim: #9B1020;
+  --white: #FFFFFF;
+  --grey: #A0A0A0;
+  --light: #E8E8E8;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 clamp(1rem, 5vw, 4rem);
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--red); }
+.nav-links {
+  display: flex; gap: 2rem; list-style: none;
+}
+.nav-links a {
+  color: var(--grey);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-cta {
+  background: var(--red);
+  color: var(--white) !important;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  font-weight: 600 !important;
+}
+.nav-cta:hover { background: #c4151f; color: var(--white) !important; }
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  padding-top: 64px;
+  display: flex; align-items: center;
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: 
+    radial-gradient(ellipse 60% 80% at 70% 50%, rgba(232,25,44,0.08) 0%, transparent 70%),
+    repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px),
+    repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px);
+}
+.hero-content {
+  position: relative;
+  padding: clamp(2rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem);
+  max-width: 800px;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--red);
+  border: 1px solid var(--red);
+  padding: 0.35rem 0.9rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--red);
+  display: block;
+}
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--grey);
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--red);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 1rem 2.2rem;
+  text-decoration: none;
+  border-radius: 3px;
+  margin-right: 1rem;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-primary:hover { background: #c4151f; transform: translateY(-1px); }
+.btn-secondary {
+  display: inline-block;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 2px;
+  transition: border-color 0.2s;
+}
+.btn-secondary:hover { border-color: var(--red); }
+.hero-stats {
+  display: flex; gap: 3rem; margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem;
+  color: var(--white);
+  line-height: 1;
+}
+.stat-num span { color: var(--red); }
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--grey);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
+/* SECTION BASE */
+section { padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem); }
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+.section-sub {
+  color: var(--grey);
+  font-size: 1rem;
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+/* EJERCICIOS */
+#ejercicios { background: var(--dark); }
+.ejercicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.ejercicio-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.ejercicio-card:hover {
+  border-color: var(--red);
+  transform: translateY(-3px);
+}
+.card-header {
+  background: linear-gradient(135deg, var(--red-dim), var(--red));
+  padding: 1.2rem 1.5rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.card-icon { font-size: 1.6rem; }
+.card-muscle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+}
+.card-title-ex {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+.card-body { padding: 1.4rem 1.5rem; }
+.card-body p {
+  font-size: 0.88rem;
+  color: var(--grey);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.series-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: rgba(232,25,44,0.12);
+  border: 1px solid rgba(232,25,44,0.3);
+  color: var(--red);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 3px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.tips-list {
+  list-style: none;
+  margin-top: 0.75rem;
+}
+.tips-list li {
+  font-size: 0.83rem;
+  color: var(--light);
+  padding: 0.3rem 0;
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.5;
+}
+.tips-list li::before {
+  content: '—';
+  position: absolute; left: 0;
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* RUTINAS */
+#rutinas { background: var(--black); }
+.rutinas-tabs {
+  display: flex; gap: 0.5rem; margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+.tab-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--grey);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.83rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+.tab-btn.active, .tab-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+}
+.rutina-content { display: none; }
+.rutina-content.active { display: block; }
+.rutina-week {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.day-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.25rem;
+}
+.day-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  color: var(--red);
+  margin-bottom: 0.5rem;
+}
+.day-focus {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+.day-exercises {
+  list-style: none;
+  font-size: 0.82rem;
+  color: var(--grey);
+}
+.day-exercises li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.day-exercises li:last-child { border-bottom: none; }
+.day-rest {
+  font-size: 0.9rem;
+  color: var(--grey);
+  font-style: italic;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* NUTRICION */
+#nutricion { background: var(--dark); }
+.nutricion-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .nutricion-layout { grid-template-columns: 1fr; }
+}
+.macro-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  margin-bottom: 2rem;
+}
+.macro-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.25rem;
+  text-align: center;
+}
+.macro-pct {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--red);
+}
+.macro-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-top: 0.25rem;
+}
+.macro-desc {
+  font-size: 0.8rem;
+  color: var(--grey);
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+.meal-plan {
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.meal-item {
+  display: flex; gap: 1rem; align-items: flex-start;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+}
+.meal-time {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.95rem;
+  color: var(--red);
+  min-width: 70px;
+  letter-spacing: 0.04em;
+}
+.meal-detail strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+}
+.meal-detail span {
+  font-size: 0.8rem;
+  color: var(--grey);
+}
+
+/* SUPLEMENTOS */
+#suplementos { background: var(--black); }
+.supl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.supl-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.supl-card:hover { border-color: var(--red); }
+.supl-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--red);
+}
+.supl-icon { font-size: 2rem; margin-bottom: 1rem; }
+.supl-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+.supl-desc {
+  font-size: 0.85rem;
+  color: var(--grey);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.supl-dosis {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--red);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* TIPS */
+#tips { background: var(--dark); }
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.tip-item {
+  display: flex; gap: 1.25rem;
+}
+.tip-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  color: var(--border);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 56px;
+}
+.tip-text strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+}
+.tip-text p {
+  font-size: 0.86rem;
+  color: var(--grey);
+  line-height: 1.6;
+}
+
+/* CALCULADORA */
+#calculadora { background: var(--black); }
+.calc-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+@media (max-width: 768px) { .calc-wrap { grid-template-columns: 1fr; } }
+.calc-form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+}
+.form-group { margin-bottom: 1.25rem; }
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 0.5rem;
+}
+.form-group input, .form-group select {
+  width: 100%;
+  background: var(--black);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus, .form-group select:focus {
+  border-color: var(--red);
+}
+.form-group select option { background: var(--dark); }
+.calc-btn {
+  width: 100%;
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.calc-btn:hover { background: #c4151f; }
+.calc-result {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+}
+.result-empty {
+  text-align: center;
+  padding: 3rem 0;
+}
+.result-empty p { color: var(--grey); font-size: 0.9rem; }
+.result-kcal {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--red);
+}
+.result-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 1.5rem;
+}
+.result-macros {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;
+  margin-top: 1.5rem;
+}
+.rmacro {
+  text-align: center;
+  background: var(--black);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.75rem;
+}
+.rmacro-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  color: var(--white);
+}
+.rmacro-lbl {
+  font-size: 0.7rem;
+  color: var(--grey);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* FOOTER */
+footer {
+  background: var(--dark);
+  border-top: 1px solid var(--border);
+  padding: 3rem clamp(1.5rem, 6vw, 5rem);
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+}
+@media (max-width: 768px) {
+  footer { grid-template-columns: 1fr; gap: 2rem; }
+}
+.footer-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+.footer-brand span { color: var(--red); }
+.footer-desc {
+  font-size: 0.85rem;
+  color: var(--grey);
+  line-height: 1.7;
+  max-width: 320px;
+}
+.footer-disclaimer {
+  font-size: 0.72rem;
+  color: #555;
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+.footer-col h4 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 0.5rem; }
+.footer-col a {
+  font-size: 0.85rem;
+  color: var(--grey);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--red); }
+.footer-bottom {
+  background: var(--dark);
+  border-top: 1px solid var(--border);
+  padding: 1.25rem clamp(1.5rem, 6vw, 5rem);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 0.5rem;
+}
+.footer-bottom p { font-size: 0.78rem; color: #555; }
+.footer-bottom a { color: var(--grey); text-decoration: none; }
+
+/* AD PLACEHOLDER */
+.ad-banner {
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: 4px;
+  min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--grey);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 2rem clamp(1.5rem, 6vw, 5rem);
+}
+.ad-inline {
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: 4px;
+  min-height: 250px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--grey);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 2rem 0;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><span>FIT</span>PRO</a>
+  <ul class="nav-links">
+    <li><a href="#ejercicios">Ejercicios</a></li>
+    <li><a href="#rutinas">Rutinas</a></li>
+    <li><a href="#nutricion">Nutrición</a></li>
+    <li><a href="#suplementos">Suplementos</a></li>
+    <li><a href="#calculadora">Calculadora</a></li>
+    <li><a href="#calculadora" class="nav-cta">Calcular calorías</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Guía profesional 2025</div>
+    <h1>ENTRENA DURO.<em>COME MEJOR.</em>EVOLUCIONA.</h1>
+    <p>Todo lo que necesitas para maximizar tu rendimiento en el gimnasio: ejercicios detallados, rutinas estructuradas, planes de nutrición y suplementación basada en evidencia.</p>
+    <a href="#ejercicios" class="btn-primary">Ver ejercicios</a>
+    <a href="#calculadora" class="btn-secondary">Calcular mis calorías</a>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">50<span>+</span></div>
+        <div class="stat-label">Ejercicios explicados</div>
+      </div>
+      <div>
+        <div class="stat-num">3</div>
+        <div class="stat-label">Rutinas semanales</div>
+      </div>
+      <div>
+        <div class="stat-num">100<span>%</span></div>
+        <div class="stat-label">Basado en evidencia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AD TOP BANNER -->
+<div class="ad-banner">Publicidad – Google AdSense 728×90</div>
+
+<!-- EJERCICIOS -->
+<section id="ejercicios">
+  <div class="section-label">Guía de ejercicios</div>
+  <h2 class="section-title">LOS MEJORES EJERCICIOS<br>POR GRUPO MUSCULAR</h2>
+  <p class="section-sub">Técnica correcta, variantes y consejos de rendimiento para cada movimiento fundamental del gimnasio.</p>
+  <div class="ejercicios-grid">
+
+    <div class="ejercicio-card">
+      <div class="card-header">
+        <div class="card-icon">🏋️</div>
+        <div>
+          <div class="card-muscle">Pecho</div>
+          <div class="card-title-ex">Press de Banca</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>El ejercicio rey para desarrollar el pectoral mayor, deltoides anterior y tríceps. Base de cualquier programa de empuje.</p>
+        <div>
+          <span class="series-badge">4 series</span>
+          <span class="series-badge">6–10 reps</span>
+          <span class="series-badge">2–3 min descanso</span>
+        </div>
+        <ul class="tips-list">
+          <li>Retracción escapular completa antes de bajar la barra</li>
+          <li>Pies firmes en el suelo, glúteos en el banco</li>
+          <li>Codos a 45–60° respecto al torso</li>
+          <li>Bajar hasta rozar el pecho, no rebotar</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ejercicio-card">
+      <div class="card-header">
+        <div class="card-icon">🦵</div>
+        <div>
+          <div class="card-muscle">Piernas</div>
+          <div class="card-title-ex">Sentadilla con Barra</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>El movimiento más completo para cuádriceps, isquios, glúteos y core. Estimula la producción hormonal más que cualquier otro ejercicio.</p>
+        <div>
+          <span class="series-badge">5 series</span>
+          <span class="series-badge">5–8 reps</span>
+          <span class="series-badge">3 min descanso</span>
+        </div>
+        <ul class="tips-list">
+          <li>Barra sobre los trapecios, no en el cuello</li>
+          <li>Rodillas siguiendo la dirección de los pies</li>
+          <li>Descender hasta paralelo o por debajo</li>
+          <li>Empuje desde los talones en la subida</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ejercicio-card">
+      <div class="card-header">
+        <div class="card-icon">💪</div>
+        <div>
+          <div class="card-muscle">Espalda</div>
+          <div class="card-title-ex">Peso Muerto</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Ejercicio de cadena posterior completa. Activa dorsales, trapecios, lumbares, isquios y glúteos simultáneamente.</p>
+        <div>
+          <span class="series-badge">4 series</span>
+          <span class="series-badge">4–6 reps</span>
+          <span class="series-badge">3–4 min descanso</span>
+        </div>
+        <ul class="tips-list">
+          <li>Espalda neutral en todo momento, sin redondear</li>
+          <li>Barra pegada al cuerpo durante todo el recorrido</li>
+          <li>Empuje el suelo con los pies, no "tires" con la espalda</li>
+          <li>Bloqueo de cadera completo arriba</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ejercicio-card">
+      <div class="card-header">
+        <div class="card-icon">🔝</div>
+        <div>
+          <div class="card-muscle">Espalda</div>
+          <div class="card-title-ex">Dominadas</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>El mejor ejercicio de jalón para desarrollar dorsales anchos y bíceps. Superior a cualquier máquina de jalón.</p>
+        <div>
+          <span class="series-badge">4 series</span>
+          <span class="series-badge">6–12 reps</span>
+          <span class="series-badge">2 min descanso</span>
+        </div>
+        <ul class="tips-list">
+          <li>Agarre pronado, manos algo más que el ancho de hombros</li>
+          <li>Depresión escapular antes de subir</li>
+          <li>Codos hacia atrás y abajo al subir</li>
+          <li>Extensión completa en el punto bajo</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ejercicio-card">
+      <div class="card-header">
+        <div class="card-icon">🏃</div>
+        <div>
+          <div class="card-muscle">Hombros</div>
+          <div class="card-title-ex">Press Militar</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Ejercicio fundamental para deltoides, especialmente la porción media y anterior. También trabaja tríceps intensamente.</p>
+        <div>
+          <span class="series-badge">4 series</span>
+          <span class="series-badge">6–10 reps</span>
+          <span class="series-badge">2–3 min descanso</span>
+        </div>
+        <ul class="tips-list">
+          <li>Core activado, sin hiperextensión lumbar</li>
+          <li>Presionar la barra en línea recta</li>
+          <li>Agarre ligeramente más ancho que hombros</li>
+          <li>Extensión completa sin bloquear articulaciones</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ejercicio-card">
+      <div class="card-header">
+        <div class="card-icon">💥</div>
+        <div>
+          <div class="card-muscle">Brazos</div>
+          <div class="card-title-ex">Curl de Bíceps con Barra</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>El movimiento de aislamiento más efectivo para el bíceps braquial. Permite cargas altas con máxima tensión muscular.</p>
+        <div>
+          <span class="series-badge">3 series</span>
+          <span class="series-badge">8–12 reps</span>
+          <span class="series-badge">90 seg descanso</span>
+        </div>
+        <ul class="tips-list">
+          <li>Codos pegados al torso durante todo el recorrido</li>
+          <li>Contracción completa en la parte alta</li>
+          <li>Descenso controlado en 2–3 segundos</li>
+          <li>No balancear el cuerpo para generar impulso</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AD INLINE -->
+<div style="padding: 0 clamp(1.5rem,6vw,5rem)">
+  <div class="ad-inline">Publicidad – Google AdSense 300×250 o 336×280</div>
+</div>
+
+<!-- RUTINAS -->
+<section id="rutinas">
+  <div class="section-label">Planificación semanal</div>
+  <h2 class="section-title">RUTINAS PARA CADA<br>NIVEL DE EXPERIENCIA</h2>
+  <p class="section-sub">Escoge la rutina que se adapta a tu nivel y objetivos. Cada plan está diseñado para maximizar la recuperación y el progreso.</p>
+  <div class="rutinas-tabs">
+    <button class="tab-btn active" onclick="showRutina('principiante', this)">Principiante</button>
+    <button class="tab-btn" onclick="showRutina('intermedio', this)">Intermedio</button>
+    <button class="tab-btn" onclick="showRutina('avanzado', this)">Avanzado</button>
+  </div>
+
+  <div class="rutina-content active" id="rutina-principiante">
+    <div class="rutina-week">
+      <div class="day-card">
+        <div class="day-name">Lunes</div>
+        <div class="day-focus">Cuerpo Completo A</div>
+        <ul class="day-exercises">
+          <li>Sentadilla 3×10</li>
+          <li>Press banca 3×10</li>
+          <li>Remo con barra 3×10</li>
+          <li>Press militar 3×10</li>
+          <li>Plancha 3×30s</li>
+        </ul>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Martes</div>
+        <div class="day-focus">Descanso activo</div>
+        <p class="day-rest">Caminata 30 min o movilidad</p>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Miércoles</div>
+        <div class="day-focus">Cuerpo Completo B</div>
+        <ul class="day-exercises">
+          <li>Peso muerto 3×8</li>
+          <li>Press inclinado 3×10</li>
+          <li>Dominadas asistidas 3×8</li>
+          <li>Curl bíceps 3×12</li>
+          <li>Tríceps polea 3×12</li>
+        </ul>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Jueves</div>
+        <div class="day-focus">Descanso activo</div>
+        <p class="day-rest">Estiramientos o yoga</p>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Viernes</div>
+        <div class="day-focus">Cuerpo Completo C</div>
+        <ul class="day-exercises">
+          <li>Zancadas 3×12</li>
+          <li>Aperturas mancuernas 3×12</li>
+          <li>Jalón al pecho 3×10</li>
+          <li>Elevaciones laterales 3×15</li>
+          <li>Abdominales 3×20</li>
+        </ul>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Sáb–Dom</div>
+        <div class="day-focus">Descanso completo</div>
+        <p class="day-rest">Recuperación total</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rutina-content" id="rutina-intermedio">
+    <div class="rutina-week">
+      <div class="day-card">
+        <div class="day-name">Lunes</div>
+        <div class="day-focus">Empuje (Pecho/Hombro/Tríceps)</div>
+        <ul class="day-exercises">
+          <li>Press banca 4×6-8</li>
+          <li>Press inclinado 3×8-10</li>
+          <li>Press militar 4×8</li>
+          <li>Elevaciones laterales 4×15</li>
+          <li>Extensiones tríceps 3×12</li>
+        </ul>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Martes</div>
+        <div class="day-focus">Tirón (Espalda/Bíceps)</div>
+        <ul class="day-exercises">
+          <li>Peso muerto 4×5</li>
+          <li>Dominadas 4×6-10</li>
+          <li>Remo con barra 3×8</li>
+          <li>Curl bíceps 3×10-12</li>
+          <li>Curl martillo 3×12</li>
+        </ul>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Miércoles</div>
+        <div class="day-focus">Piernas</div>
+        <ul class="day-exercises">
+          <li>Sentadilla 5×5</li>
+          <li>Prensa de piernas 3×10</li>
+          <li>Extensión de cuádriceps 3×15</li>
+          <li>Curl de isquios 3×12</li>
+          <li>Gemelos de pie 4×15</li>
+        </ul>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Jueves</div>
+        <div class="day-focus">Descanso</div>
+        <p class="day-rest">Recuperación o cardio suave</p>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Viernes</div>
+        <div class="day-focus">Empuje B</div>
+        <ul class="day-exercises">
+          <li>Press banca mancuernas 4×8</li>
+          <li>Fondos en paralelas 3×max</li>
+          <li>Press Arnold 3×10</li>
+          <li>Aperturas polea 3×15</li>
+          <li>Tríceps cuerda 3×15</li>
+        </ul>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Sábado</div>
+        <div class="day-focus">Tirón B + Core</div>
+        <ul class="day-exercises">
+          <li>Jalón al pecho 4×10</li>
+          <li>Remo en polea 3×12</li>
+          <li>Face pulls 3×20</li>
+          <li>Curl concentrado 3×12</li>
+          <li>Plancha + rotaciones 3×45s</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="rutina-content" id="rutina-avanzado">
+    <div class="rutina-week">
+      <div class="day-card">
+        <div class="day-name">Lunes</div>
+        <div class="day-focus">Pecho + Tríceps</div>
+        <ul class="day-exercises">
+          <li>Press banca 5×4-6</li>
+          <li>Press inclinado barra 4×6-8</li>
+          <li>Aperturas cable 4×12</li>
+          <li>Fondos lastrados 3×8</li>
+          <li>Press francés 3×10</li>
+        </ul>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Martes</div>
+        <div class="day-focus">Espalda + Bíceps</div>
+        <ul class="day-exercises">
+          <li>Peso muerto 5×3-5</li>
+          <li>Dominadas lastradas 4×6-8</li>
+          <li>Remo Pendlay 4×6</li>
+          <li>Remo unilateral 3×10</li>
+          <li>Curl barra Z 4×8</li>
+        </ul>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Miércoles</div>
+        <div class="day-focus">Piernas Cuádriceps</div>
+        <ul class="day-exercises">
+          <li>Sentadilla 6×4-6</li>
+          <li>Front squat 3×6</li>
+          <li>Hack squat 4×8</li>
+          <li>Extensiones 4×15 drop</li>
+          <li>Gemelos sentado 5×12</li>
+        </ul>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Jueves</div>
+        <div class="day-focus">Hombros + Core</div>
+        <ul class="day-exercises">
+          <li>Press militar 5×5</li>
+          <li>Elevaciones laterales 5×15</li>
+          <li>Pájaro 4×15</li>
+          <li>Face pulls 4×20</li>
+          <li>Ab wheel 4×10</li>
+        </ul>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Viernes</div>
+        <div class="day-focus">Piernas Isquios/Glúteos</div>
+        <ul class="day-exercises">
+          <li>RDL 5×5-6</li>
+          <li>Sentadilla búlgara 4×8</li>
+          <li>Hip thrust lastrado 4×10</li>
+          <li>Curl isquios 4×12</li>
+          <li>Gemelos de pie 5×15</li>
+        </ul>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Sáb–Dom</div>
+        <div class="day-focus">Descanso</div>
+        <p class="day-rest">Recuperación activa + movilidad</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUTRICION -->
+<section id="nutricion">
+  <div class="section-label">Alimentación deportiva</div>
+  <h2 class="section-title">NUTRICIÓN PARA<br>MAXIMIZAR TU RENDIMIENTO</h2>
+  <p class="section-sub">La dieta representa el 70% de tus resultados. Aprende a estructurar tu alimentación para ganar músculo o perder grasa sin sacrificar rendimiento.</p>
+  <div class="nutricion-layout">
+    <div>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.04em;margin-bottom:1.25rem;color:var(--white)">DISTRIBUCIÓN DE MACRONUTRIENTES</h3>
+      <div class="macro-grid">
+        <div class="macro-card">
+          <div class="macro-pct">35%</div>
+          <div class="macro-name">Proteínas</div>
+          <div class="macro-desc">2–2.2g por kg de peso corporal. Pilar de la síntesis muscular.</div>
+        </div>
+        <div class="macro-card">
+          <div class="macro-pct">45%</div>
+          <div class="macro-name">Carbohidratos</div>
+          <div class="macro-desc">Combustible principal para el entrenamiento de alta intensidad.</div>
+        </div>
+        <div class="macro-card">
+          <div class="macro-pct">20%</div>
+          <div class="macro-name">Grasas</div>
+          <div class="macro-desc">Producción hormonal, absorción de vitaminas y salud articular.</div>
+        </div>
+        <div class="macro-card">
+          <div class="macro-pct">3–4L</div>
+          <div class="macro-name">Hidratación</div>
+          <div class="macro-desc">Agua diaria mínima. Añadir 500ml por hora de entrenamiento intenso.</div>
+        </div>
+      </div>
+      <div class="ad-inline" style="min-height:160px">Publicidad – Google AdSense</div>
+    </div>
+    <div>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.04em;margin-bottom:1.25rem;color:var(--white)">PLAN ALIMENTARIO TIPO</h3>
+      <div class="meal-plan">
+        <div class="meal-item">
+          <div class="meal-time">07:30</div>
+          <div class="meal-detail">
+            <strong>Desayuno alto en proteínas</strong>
+            <span>4 huevos revueltos + avena 80g + fruta + café negro</span>
+          </div>
+        </div>
+        <div class="meal-item">
+          <div class="meal-time">10:30</div>
+          <div class="meal-detail">
+            <strong>Pre-entreno</strong>
+            <span>Arroz 100g + pechuga de pollo 150g + verduras</span>
+          </div>
+        </div>
+        <div class="meal-item">
+          <div class="meal-time">13:30</div>
+          <div class="meal-detail">
+            <strong>Comida post-entreno</strong>
+            <span>Batido proteína 30g + plátano + creatina</span>
+          </div>
+        </div>
+        <div class="meal-item">
+          <div class="meal-time">16:00</div>
+          <div class="meal-detail">
+            <strong>Merienda</strong>
+            <span>Yogur griego 250g + frutos secos 30g + miel</span>
+          </div>
+        </div>
+        <div class="meal-item">
+          <div class="meal-time">19:30</div>
+          <div class="meal-detail">
+            <strong>Cena</strong>
+            <span>Salmón 200g + patata dulce 150g + ensalada grande</span>
+          </div>
+        </div>
+        <div class="meal-item">
+          <div class="meal-time">22:00</div>
+          <div class="meal-detail">
+            <strong>Pre-sueño (opcional)</strong>
+            <span>Caseína 25g o queso cottage 150g</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPLEMENTOS -->
+<section id="suplementos">
+  <div class="section-label">Suplementación</div>
+  <h2 class="section-title">SUPLEMENTOS RESPALDADOS<br>POR LA CIENCIA</h2>
+  <p class="section-sub">Solo suplementos con evidencia sólida. Ningún producto milagroso, solo lo que realmente funciona.</p>
+  <div class="supl-grid">
+    <div class="supl-card">
+      <div class="supl-icon">⚡</div>
+      <div class="supl-name">Creatina Monohidrato</div>
+      <div class="supl-desc">El suplemento más estudiado del mundo. Aumenta la fuerza, potencia y recuperación muscular. Sin efectos adversos documentados con el uso correcto.</div>
+      <div class="supl-dosis">Dosis: 3–5g diarios · Cualquier momento</div>
+    </div>
+    <div class="supl-card">
+      <div class="supl-icon">🥛</div>
+      <div class="supl-name">Proteína de Suero (Whey)</div>
+      <div class="supl-desc">Fuente de proteína completa de rápida absorción. Ideal post-entreno para iniciar la síntesis proteica muscular.</div>
+      <div class="supl-dosis">Dosis: 25–40g · Post-entreno</div>
+    </div>
+    <div class="supl-card">
+      <div class="supl-icon">☕</div>
+      <div class="supl-name">Cafeína</div>
+      <div class="supl-desc">Mejora el rendimiento, la fuerza y la resistencia. Retrasa la fatiga y aumenta la quema de grasa durante el ejercicio.</div>
+      <div class="supl-dosis">Dosis: 3–6mg/kg · 45 min pre-entreno</div>
+    </div>
+    <div class="supl-card">
+      <div class="supl-icon">🌊</div>
+      <div class="supl-name">Beta-Alanina</div>
+      <div class="supl-desc">Aumenta los niveles de carnosina muscular, retrasando la acidez y mejorando el rendimiento en series de 1–4 minutos.</div>
+      <div class="supl-dosis">Dosis: 3.2–6.4g · Con comidas</div>
+    </div>
+    <div class="supl-card">
+      <div class="supl-icon">🌅</div>
+      <div class="supl-name">Vitamina D3</div>
+      <div class="supl-desc">Fundamental para la testosterona, la salud ósea y la función inmune. La mayoría de la población tiene déficit, especialmente en invierno.</div>
+      <div class="supl-dosis">Dosis: 2000–4000 IU · Con grasa</div>
+    </div>
+    <div class="supl-card">
+      <div class="supl-icon">🧪</div>
+      <div class="supl-name">Omega-3</div>
+      <div class="supl-desc">Reduce la inflamación, mejora la salud cardiovascular y puede potenciar la síntesis proteica. EPA y DHA son las formas activas.</div>
+      <div class="supl-dosis">Dosis: 2–3g EPA+DHA · Con comida</div>
+    </div>
+  </div>
+</section>
+
+<!-- AD BANNER -->
+<div class="ad-banner">Publicidad – Google AdSense 728×90</div>
+
+<!-- TIPS -->
+<section id="tips">
+  <div class="section-label">Claves del progreso</div>
+  <h2 class="section-title">10 PRINCIPIOS QUE<br>CAMBIAN LOS RESULTADOS</h2>
+  <p class="section-sub">Los factores más ignorados y que más impactan en la transformación física.</p>
+  <div class="tips-grid">
+    <div class="tip-item">
+      <div class="tip-num">01</div>
+      <div class="tip-text">
+        <strong>Sobrecarga progresiva</strong>
+        <p>Aumentar gradualmente el peso, reps o volumen es el estímulo principal para el crecimiento muscular. Sin progresión, no hay adaptación.</p>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">02</div>
+      <div class="tip-text">
+        <strong>El sueño construye músculo</strong>
+        <p>El 80% de la hormona del crecimiento se libera durante el sueño profundo. 7–9 horas es innegociable para cualquier deportista serio.</p>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">03</div>
+      <div class="tip-text">
+        <strong>Consistencia sobre intensidad</strong>
+        <p>Entrenar bien 4 veces por semana durante 2 años supera ampliamente a entrenar duro 6 veces durante 6 meses y quemarse.</p>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">04</div>
+      <div class="tip-text">
+        <strong>Proteína en cada comida</strong>
+        <p>Distribuir la proteína en 4–6 tomas de 30–40g maximiza la síntesis muscular a lo largo del día.</p>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">05</div>
+      <div class="tip-text">
+        <strong>Técnica antes que peso</strong>
+        <p>Una repetición perfecta con menos carga activa más músculo y reduce el riesgo de lesión comparado con moverse con peso excesivo.</p>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">06</div>
+      <div class="tip-text">
+        <strong>El cardio no destruye músculo</strong>
+        <p>El cardio moderado (2–3 sesiones semanales de 20–30 min) mejora la recuperación, la salud cardiovascular y no compromete el músculo.</p>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">07</div>
+      <div class="tip-text">
+        <strong>Come alrededor del entreno</strong>
+        <p>Carbohidratos antes y proteína + carbohidratos después del entrenamiento optimizan el rendimiento y la recuperación.</p>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">08</div>
+      <div class="tip-text">
+        <strong>Registra tu progreso</strong>
+        <p>Llevar un diario de entrenamiento te permite ver patrones, identificar estancamientos y tomar decisiones basadas en datos reales.</p>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">09</div>
+      <div class="tip-text">
+        <strong>La deload es entrenamiento</strong>
+        <p>Una semana de descarga cada 4–8 semanas previene el sobreentrenamiento y permite que el sistema nervioso se recupere completamente.</p>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">10</div>
+      <div class="tip-text">
+        <strong>Gestiona el estrés</strong>
+        <p>El cortisol elevado por estrés crónico inhibe la testosterona y la hormona del crecimiento. El estrés psicológico afecta físicamente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULADORA -->
+<section id="calculadora">
+  <div class="section-label">Herramienta gratuita</div>
+  <h2 class="section-title">CALCULA TUS<br>NECESIDADES CALÓRICAS</h2>
+  <p class="section-sub">Obtén tu metabolismo basal y calorías de mantenimiento ajustadas a tu nivel de actividad y objetivo.</p>
+  <div class="calc-wrap">
+    <div class="calc-form">
+      <div class="form-group">
+        <label>Sexo</label>
+        <select id="sexo">
+          <option value="hombre">Hombre</option>
+          <option value="mujer">Mujer</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Edad (años)</label>
+        <input type="number" id="edad" placeholder="25" min="15" max="80">
+      </div>
+      <div class="form-group">
+        <label>Peso (kg)</label>
+        <input type="number" id="peso" placeholder="75" min="40" max="200">
+      </div>
+      <div class="form-group">
+        <label>Altura (cm)</label>
+        <input type="number" id="altura" placeholder="175" min="140" max="220">
+      </div>
+      <div class="form-group">
+        <label>Nivel de actividad</label>
+        <select id="actividad">
+          <option value="1.2">Sedentario (sin ejercicio)</option>
+          <option value="1.375">Ligero (1–3 días/semana)</option>
+          <option value="1.55" selected>Moderado (3–5 días/semana)</option>
+          <option value="1.725">Activo (6–7 días/semana)</option>
+          <option value="1.9">Muy activo (2 veces/día)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Objetivo</label>
+        <select id="objetivo">
+          <option value="deficit">Perder grasa (déficit –300 kcal)</option>
+          <option value="mantenimiento" selected>Mantenimiento</option>
+          <option value="volumen">Ganar músculo (+300 kcal)</option>
+        </select>
+      </div>
+      <button class="calc-btn" onclick="calcular()">Calcular mis calorías</button>
+    </div>
+    <div class="calc-result" id="resultado">
+      <div class="result-empty">
+        <p>Completa el formulario y pulsa<br>«Calcular mis calorías»</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand"><span>FIT</span>PRO SPAIN</div>
+    <p class="footer-desc">Tu referencia en entrenamiento y nutrición deportiva en español. Contenido basado en evidencia científica, actualizado regularmente.</p>
+    <p class="footer-disclaimer">⚠️ Este sitio tiene fines informativos y educativos. Consulta siempre con un profesional de la salud antes de iniciar cualquier programa de entrenamiento o dieta, especialmente si tienes condiciones médicas preexistentes.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Secciones</h4>
+    <ul>
+      <li><a href="#ejercicios">Ejercicios</a></li>
+      <li><a href="#rutinas">Rutinas</a></li>
+      <li><a href="#nutricion">Nutrición</a></li>
+      <li><a href="#suplementos">Suplementos</a></li>
+      <li><a href="#tips">Tips</a></li>
+      <li><a href="#calculadora">Calculadora</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Legal</h4>
+    <ul>
+      <li><a href="#">Aviso legal</a></li>
+      <li><a href="#">Política de privacidad</a></li>
+      <li><a href="#">Política de cookies</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2025 FitPro Spain · Todos los derechos reservados</p>
+  <p><a href="#">Política de privacidad</a> · <a href="#">Cookies</a></p>
+</div>
+
+<script>
+function showRutina(id, btn) {
+  document.querySelectorAll('.rutina-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('rutina-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function calcular() {
+  const sexo = document.getElementById('sexo').value;
+  const edad = parseFloat(document.getElementById('edad').value);
+  const peso = parseFloat(document.getElementById('peso').value);
+  const altura = parseFloat(document.getElementById('altura').value);
+  const actividad = parseFloat(document.getElementById('actividad').value);
+  const objetivo = document.getElementById('objetivo').value;
+
+  if (!edad || !peso || !altura) {
+    document.getElementById('resultado').innerHTML = `<div class="result-empty"><p style="color:var(--red)">Por favor, completa todos los campos.</p></div>`;
+    return;
+  }
+
+  let tmb;
+  if (sexo === 'hombre') {
+    tmb = 88.362 + (13.397 * peso) + (4.799 * altura) - (5.677 * edad);
+  } else {
+    tmb = 447.593 + (9.247 * peso) + (3.098 * altura) - (4.330 * edad);
+  }
+
+  let tdee = tmb * actividad;
+  let ajuste = 0;
+  let objetivoLabel = 'Mantenimiento';
+  if (objetivo === 'deficit') { ajuste = -300; objetivoLabel = 'Pérdida de grasa'; }
+  if (objetivo === 'volumen') { ajuste = 300; objetivoLabel = 'Ganancia muscular'; }
+  const calorias = Math.round(tdee + ajuste);
+
+  const proteina = Math.round(peso * 2.1);
+  const grasas = Math.round((calorias * 0.25) / 9);
+  const carbos = Math.round((calorias - (proteina * 4) - (grasas * 9)) / 4);
+
+  document.getElementById('resultado').innerHTML = `
+    <div style="margin-bottom:0.5rem">
+      <div class="section-label" style="margin-bottom:0.25rem">${objetivoLabel}</div>
+      <div class="result-kcal">${calorias}</div>
+      <div class="result-label">calorías diarias recomendadas</div>
+    </div>
+    <div style="font-size:0.82rem;color:var(--grey);margin-bottom:1rem">
+      Metabolismo basal: <strong style="color:var(--white)">${Math.round(tmb)} kcal</strong> · 
+      Mantenimiento: <strong style="color:var(--white)">${Math.round(tdee)} kcal</strong>
+    </div>
+    <div class="result-macros">
+      <div class="rmacro">
+        <div class="rmacro-val">${proteina}g</div>
+        <div class="rmacro-lbl">Proteínas</div>
+      </div>
+      <div class="rmacro">
+        <div class="rmacro-val">${carbos}g</div>
+        <div class="rmacro-lbl">Carbohidratos</div>
+      </div>
+      <div class="rmacro">
+        <div class="rmacro-val">${grasas}g</div>
+        <div class="rmacro-lbl">Grasas</div>
+      </div>
+    </div>
+    <p style="font-size:0.75rem;color:#555;margin-top:1.25rem;line-height:1.5">
+      Estimación basada en la fórmula Mifflin-St Jeor. Los resultados son orientativos. Consulta un dietista-nutricionista para una valoración personalizada.
+    </p>
+  `;
+}
+</script>
+</body>
+</html>
